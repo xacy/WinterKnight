@@ -8,6 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
+import com.pkmmte.view.CircularImageView;
+
 /**
  * Created by jacinto on 04/10/2014.
  */
@@ -34,14 +36,14 @@ public class RiddlerAdapter extends BaseAdapter {
     }
     // create a new ImageView for each item referenced by the Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
-        ImageView imageView;
+        CircularImageView imageView;
         if (convertView == null) {  // if it's not recycled, initialize some attributes
-            imageView = new ImageView(mContext);
-            imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
+            imageView = new CircularImageView (mContext);
+            imageView.setLayoutParams(new GridView.LayoutParams(105, 105));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imageView.setPadding(8, 8, 8, 8);
         } else {
-            imageView = (ImageView) convertView;
+            imageView = (CircularImageView ) convertView;
         }
 
         imageView.setImageResource(mThumbIds[position]);
