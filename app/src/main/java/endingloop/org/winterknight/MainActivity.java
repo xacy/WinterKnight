@@ -2,6 +2,8 @@ package endingloop.org.winterknight;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.format.Time;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,9 +21,21 @@ public class MainActivity extends Activity {
         GridView gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(new RiddlerAdapter(this));
 
+        final Time today = new Time(Time.getCurrentTimezone());
+        today.setToNow();
+
+        Log.d("TIME TEST", today.monthDay + "-" + today.month);
+
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                Toast.makeText(MainActivity.this, "" + position, Toast.LENGTH_SHORT).show();
+                //hacer aquí la comprobación de que esta activo y sí es así permitir el click.
+                if(today.monthDay<(position+1)){
+                    Toast.makeText(MainActivity.this,"Todavía no ha llegado el día", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(MainActivity.this, "Acceso concedido", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
     }

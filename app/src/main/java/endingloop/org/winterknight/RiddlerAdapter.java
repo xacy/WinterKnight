@@ -1,6 +1,7 @@
 package endingloop.org.winterknight;
 
 import android.content.Context;
+import android.text.format.Time;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -12,9 +13,12 @@ import android.widget.ImageView;
  */
 public class RiddlerAdapter extends BaseAdapter {
     private Context mContext;
+    private Time today;
 
     public RiddlerAdapter(Context c) {
         mContext = c;
+        today = new Time(Time.getCurrentTimezone());
+        today.setToNow();
     }
 
     public int getCount() {
@@ -41,6 +45,10 @@ public class RiddlerAdapter extends BaseAdapter {
         }
 
         imageView.setImageResource(mThumbIds[position]);
+
+        if(today.monthDay<(position+1)){
+            imageView.getDrawable().mutate().setAlpha(70);
+        }
         return imageView;
     }
     // references to our images
