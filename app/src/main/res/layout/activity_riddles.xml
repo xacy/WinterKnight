@@ -1,0 +1,58 @@
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Resuelve el acertijo:"
+            android:textColor="#707070"
+            android:textSize="32sp"
+            android:fontFamily="sans-serif"
+            android:padding="15sp"
+            android:id="@+id/explaination" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Oro parece plata no es:"
+            android:textColor="#707070"
+            android:textSize="28sp"
+            android:fontFamily="sans-serif"
+            android:paddingLeft="20sp"
+            android:paddingRight="20sp"
+            android:id="@+id/riddle" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp" >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20sp"
+            android:hint="Resolver.."
+            android:id="@+id/answer" />
+        <Button
+            android:id="@+id/answer_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:onClick="onCancelButtonClick"
+            android:text="Resolver"/>
+    </LinearLayout>
+</RelativeLayout>

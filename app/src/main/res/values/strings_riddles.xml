@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="riddles">
+        <item>Es cómo una paloma blanca y negra,\npero vuela sin alas y habla sin lengua </item>
+        <item>Si soy joven, joven quedo.\nSi soy viejo, viejo quedo.\nTengo boca y no te hablo,\ntengo ojos y no te veo.\¿Quién soy? </item>
+        <item>This thing all things devours:\nBirds, beasts, trees, flowers;\nGnaws iron, bites steel;\nGrinds hard stones to meal;\nSlays king, ruins town,\nAnd beats high mountain down.</item>
+        <item>Eight hours of death. Beneath your head -.\na colored box that's full of dreams.\nIt listens to your tales unsaid.\nSoft gifts of birds escape its seams.</item>
+    </string-array>
+    <string-array name="riddles_solutions">
+        <item>carta</item>
+        <item>foto</item>
+        <item>time</item>
+        <item>pillow</item>
+    </string-array>
+</resources>

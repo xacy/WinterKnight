@@ -2,6 +2,7 @@ package endingloop.org.winterknight;
 
 import android.content.Context;
 import android.text.format.Time;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -47,10 +48,20 @@ public class RiddlerAdapter extends BaseAdapter {
         }
 
         imageView.setImageResource(mThumbIds[position]);
+        Time custom=new Time();
+        custom.set(position+1,(position>=24)?11:9,2014);
+        Log.d("TIME TODAY",""+today.monthDay+"-"+today.month+"]["+custom.monthDay+custom.month);
 
-        if(today.monthDay<(position+1)){
+        if(today.monthDay<custom.monthDay && today.month==custom.month){
+            Log.d("alpha","es el mismo dia que position");
             imageView.getDrawable().mutate().setAlpha(70);
+            //Esto no funciona con los imageview circulares así que habrá que hacer 2 columnas de recursos para los que esten disponibles y para los que no
+            //los que no lo esten estaran en gris en photoshop y pista
         }
+       /* if(today.monthDay<(position+1)){
+            Log.d("alpha","es el mismo dia que position");
+            imageView.getDrawable().mutate().setAlpha(70);
+        }*/
         return imageView;
     }
     // references to our images

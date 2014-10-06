@@ -13,6 +13,7 @@
             android:windowSoftInputMode="adjustResize|stateVisible" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -20,7 +21,10 @@
             android:name=".MainActivity"
             android:label="@string/title_activity_main" >
         </activity>
-
+        <activity
+            android:name=".RiddlesActivity"
+            android:label="@string/title_activity_riddles" >
+        </activity>
     </application>
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
