@@ -1,6 +1,7 @@
 package endingloop.org.winterknight;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.Time;
 import android.util.Log;
@@ -34,6 +35,9 @@ public class MainActivity extends Activity {
                 }
                 else{
                     Toast.makeText(MainActivity.this, "Acceso concedido", Toast.LENGTH_SHORT).show();
+                    Intent intent =new Intent(MainActivity.this, RiddlesActivity.class);
+                    intent.putExtra("position",position);
+                    startActivity(intent);
                 }
 
             }
