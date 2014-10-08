@@ -24,7 +24,15 @@
         <activity
             android:name=".RiddlesActivity"
             android:label="@string/title_activity_riddles"
-            android:parentActivityName="endingloop.org.winterknight.MainActivity">
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="endingloop.org.winterknight.MainActivity" />
+        </activity>
+        <activity
+            android:name=".HiddenObject"
+            android:label="@string/title_activity_hidden_obejct"
+            android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="endingloop.org.winterknight.MainActivity" />

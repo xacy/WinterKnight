@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="clues">
+        <item>coche,corta pizzas, etc etc</item>
+        <item>coche,corta pizzas, etc etc</item>
+        <item>coche,corta pizzas, etc etc</item>
+        <item>coche,corta pizzas, etc etc</item>
+    </string-array>
+    <!--En esta eran las referencias a las imagenes-->
+    <string-array name="image">
+        <item>R.drawable.sample_3</item>
+        <item>R.drawable.sample_3</item>
+        <item>R.drawable.sample_3</item>
+        <item>R.drawable.sample_3</item>
+    </string-array>
+    <!--En esta iran las imagenes con las soluciones -->
+    <string-array name="image_solutions">
+        <item>R.drawable.sample_3</item>
+        <item>R.drawable.sample_3</item>
+        <item>R.drawable.sample_3</item>
+        <item>R.drawable.sample_3</item>
+    </string-array>
+</resources>
