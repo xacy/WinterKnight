@@ -50,11 +50,11 @@ public class HiddenObject extends Activity {
         objetos=res.getStringArray(R.array.clues);
 
         finded=new HashMap<String, Boolean>();
-        finded.put("green",false);
-        finded.put("blue",false);
-        finded.put("red",false);
-        finded.put("yellow",false);
-        finded.put("black",false);
+        finded.put("00ff48",false);//green
+        finded.put("002aff",false);//blue
+        finded.put("ff0000",false);//red
+        finded.put("ffea00",false);//yellow
+        finded.put("000000",false);//black
 
         SharedPreferences settings = getApplicationContext().getSharedPreferences("org.endingloop.winterknight.settings", Context.MODE_PRIVATE);
         int acceso=settings.getInt("last_answered", -1);

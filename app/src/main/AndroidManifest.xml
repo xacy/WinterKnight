@@ -37,6 +37,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="endingloop.org.winterknight.MainActivity" />
         </activity>
+        <activity
+            android:name=".LogicActivity"
+            android:label="@string/title_activity_logic"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="endingloop.org.winterknight.MainActivity" />
+        </activity>
     </application>
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
