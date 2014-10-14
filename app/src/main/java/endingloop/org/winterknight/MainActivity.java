@@ -35,7 +35,8 @@ public class MainActivity extends Activity {
                 }
                 else{
                     Toast.makeText(MainActivity.this, "Acceso concedido", Toast.LENGTH_SHORT).show();
-                    Intent intent =new Intent(MainActivity.this, RiddlesActivity.class);
+                  //  Intent intent =new Intent(MainActivity.this, RiddlesActivity.class);
+                    Intent intent =new Intent(MainActivity.this, HiddenObject.class);
                     intent.putExtra("position",position);
                     startActivity(intent);
                 }

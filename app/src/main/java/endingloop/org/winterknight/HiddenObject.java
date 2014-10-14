@@ -24,6 +24,7 @@ public class HiddenObject extends Activity {
     private ImageView iImagen;
     private ImageView iSolucion;
     private TextView tPistas;
+    private TextView tPresentation;
 
     private String[] imagenes;
     private String[] soluciones;
@@ -41,7 +42,8 @@ public class HiddenObject extends Activity {
         setContentView(R.layout.activity_hidden_obejct);
 
         tPistas= (TextView) findViewById(R.id.items);
-        iImagen= (ImageView) findViewById(R.id.image);
+        tPresentation= (TextView) findViewById(R.id.explainationHid);
+        iImagen= (ImageView) findViewById(R.id.imageHid);
         iSolucion= (ImageView) findViewById(R.id.imageSol);
 
         res= getResources();
@@ -50,10 +52,10 @@ public class HiddenObject extends Activity {
         objetos=res.getStringArray(R.array.clues);
 
         finded=new HashMap<String, Boolean>();
-        finded.put("00ff48",false);//green
-        finded.put("002aff",false);//blue
-        finded.put("ff0000",false);//red
-        finded.put("ffea00",false);//yellow
+        finded.put("00ff29",false);//green
+        finded.put("0026fd",false);//blue
+        finded.put("fe0000",false);//red
+        finded.put("fdec00",false);//yellow
         finded.put("000000",false);//black
 
         SharedPreferences settings = getApplicationContext().getSharedPreferences("org.endingloop.winterknight.settings", Context.MODE_PRIVATE);
@@ -95,20 +97,36 @@ public class HiddenObject extends Activity {
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     int x=(int)motionEvent.getX();
                     int y=(int)motionEvent.getY();
+                    Log.d("COORDS","x:"+x+" - y: "+y);
                     int color=getColour(x,y);
-                    if(finded.get(color)!=null){
-                        if(finded.get(color)){
+                    //color=color*-1;
+                    Log.d("COLOR",""+color);
+                    String hexColor=Integer.toHexString(color);
+                    hexColor=hexColor.substring(2);
+                    Log.d("COLOR CONVERT",""+hexColor);
+                    int red=Color.red(color);
+                    int green=Color.green(color);
+                    int blue=Color.blue(color);
+                    Log.d("COLORS","Red: "+red+" - green: "+green+" - blue"+blue);
+                    if(finded.get(hexColor)!=null){
+                        if(finded.get(hexColor)){
                             Toast.makeText(HiddenObject.this, "¡Ya habías encontrado este!", Toast.LENGTH_SHORT).show();
                         }
                         else{
-                            finded.put(color+"",true);
+                            finded.put(hexColor+"",true);
+                            Log.d("Encontrados:",""+finded.size());
                             Toast.makeText(HiddenObject.this, "¡Has encontrado uno!", Toast.LENGTH_SHORT).show();
                             if(!finded.containsValue(false)){
                                 Toast.makeText(HiddenObject.this, "¡Felicidades has encontrado todos!", Toast.LENGTH_SHORT).show();
-                                tPistas.setText("¡Ya has superado este acertijo!");
+                                tPresentation.setText("¡Ya has superado este acertijo!");
+                                tPistas.setText("¡Prueba con el siguiente!");
+                                tPresentation.setTextColor(Color.parseColor("#99CC00"));
                                 tPistas.setTextColor(Color.parseColor("#99CC00"));
                                 iImagen.setEnabled(false);
                                 iSolucion.setEnabled(false);
+                                /*
+                                Falta añadir a las preferencias que este acertijo esta superado.
+                                 */
                             }
                         }
                     }
@@ -117,8 +135,10 @@ public class HiddenObject extends Activity {
             });
         }
         else{
-            tPistas.setText("¡Ya has superado este acertijo!");
+            tPresentation.setText("¡Ya has superado este acertijo!");
+            tPistas.setText("¡Prueba con el siguiente!");
             tPistas.setTextColor(Color.parseColor("#99CC00"));
+            tPresentation.setTextColor(Color.parseColor("#99CC00"));
             iImagen.setEnabled(false);
             iSolucion.setEnabled(false);
         }
@@ -127,11 +147,17 @@ public class HiddenObject extends Activity {
     }
 
     private int getColour( int x, int y){
-        ImageView img = (ImageView) findViewById(R.id.imageSol);
-        img.setDrawingCacheEnabled(true);
-        Bitmap hotspots=Bitmap.createBitmap(img.getDrawingCache());
-        img.setDrawingCacheEnabled(false);
+        //ImageView img = (ImageView) findViewById(R.id.imageSol);
+        iSolucion.setDrawingCacheEnabled(true);
+        Bitmap hotspots=Bitmap.createBitmap(iSolucion.getDrawingCache());
+        iSolucion.setDrawingCacheEnabled(false);
+        /*Drawable imgDrawable = iSolucion.getDrawable();
+        Bitmap mutableBitmap = Bitmap.createBitmap(iSolucion.getWidth(), iSolucion.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(mutableBitmap);
+        imgDrawable.draw(canvas);
+        int pixel = mutableBitmap.getPixel(x,y);*/
         return hotspots.getPixel(x, y);
+        //return pixel;
     }
 
     @Override
