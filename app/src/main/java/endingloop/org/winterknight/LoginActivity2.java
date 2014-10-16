@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.content.Loader;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -59,6 +60,10 @@ public class LoginActivity2 extends Activity implements LoaderCallbacks<Cursor>{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login2);
+
+        View backgroundimage = findViewById(R.id.fondoLogin);
+        Drawable background = backgroundimage.getBackground();
+        background.setAlpha(95);
 
         SharedPreferences settings = getApplicationContext().getSharedPreferences("org.endingloop.winterknight.settings", Context.MODE_PRIVATE);
 
