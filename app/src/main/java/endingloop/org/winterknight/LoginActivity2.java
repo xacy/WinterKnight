@@ -44,7 +44,7 @@ public class LoginActivity2 extends Activity implements LoaderCallbacks<Cursor>{
     private static final String[] DUMMY_CREDENTIALS = new String[]{
             "foo@example.com:hello", "bar@example.com:world"
     };
-    private static final String CREDENTIALS="prueba123";
+    private static final String CREDENTIALS="RutaDelHereje";
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */

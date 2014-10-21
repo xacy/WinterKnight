@@ -71,11 +71,14 @@ public class RiddlerAdapter extends BaseAdapter {
             R.drawable.numero_5, R.drawable.numero_6,
             R.drawable.numero_7, R.drawable.numero_8,
             R.drawable.numero_9, R.drawable.numero_10,
-            R.drawable.sample_4, R.drawable.sample_5,
-            R.drawable.sample_6, R.drawable.sample_7,
-            R.drawable.sample_0, R.drawable.sample_1,
-            R.drawable.sample_2, R.drawable.sample_3,
-            R.drawable.sample_4, R.drawable.sample_5,
-            R.drawable.sample_6, R.drawable.sample_7
+            R.drawable.numero_11, R.drawable.numero_12,
+            R.drawable.numero_13, R.drawable.numero_14,
+            R.drawable.numero_15, R.drawable.numero_16,
+            R.drawable.numero_17, R.drawable.numero_18,
+            R.drawable.numero_19, R.drawable.numero_20,
+            R.drawable.numero_21, R.drawable.numero_22,
+            R.drawable.numero_23, R.drawable.numero_24,
+            R.drawable.numero_25, R.drawable.numero_26,
+            R.drawable.numero_27, R.drawable.numero_28
     };
 }

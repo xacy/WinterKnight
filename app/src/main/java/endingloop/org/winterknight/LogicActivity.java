@@ -35,7 +35,7 @@ public class LogicActivity extends Activity {
 
         mAnswer= (EditText) findViewById(R.id.answerLogic);
         mLogic= (TextView) findViewById(R.id.logicProblem);
-        bAnswer= (Button) findViewById(R.id.answer_button);
+        bAnswer= (Button) findViewById(R.id.answer_button_logic);
         res= getResources();
         logic=res.getStringArray(R.array.logics);
         solutions=res.getStringArray(R.array.logics_solutions);
@@ -111,10 +111,10 @@ public class LogicActivity extends Activity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        int id = item.getItemId();/*
         if (id == R.id.action_settings) {
             return true;
-        }
+        }*/
         return super.onOptionsItemSelected(item);
     }
 }
