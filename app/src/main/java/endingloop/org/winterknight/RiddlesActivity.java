@@ -26,6 +26,7 @@ public class RiddlesActivity extends Activity {
     private String[] solutions;
     private int riddleId;
     private int questionId;
+    private int global;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +45,11 @@ public class RiddlesActivity extends Activity {
 
         Intent intent = getIntent();
         questionId=intent.getIntExtra("position",-1);
+        global=intent.getIntExtra("id",-1);
 
         if(acceso<questionId){
             Log.d("INTENT",""+questionId);
+            mRiddle.setText(riddles[questionId]);/*
             switch(questionId){
                 case 0:
                     riddleId=0;
@@ -67,7 +70,7 @@ public class RiddlesActivity extends Activity {
                 default:
                     mRiddle.setText("Ha ocurrido un error");
                     break;
-            }
+            }*/
             bAnswer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -88,13 +91,16 @@ public class RiddlesActivity extends Activity {
         if(mAnswer.getText().toString().equals(solutions[riddleId].toLowerCase())){
             Log.d("SOLUCION","son iguales");
             //Guardamos la ultima pregunta resuelta y mostramos mensaje de acierto.
-            /*SharedPreferences settings =getApplicationContext().getSharedPreferences("org.endingloop.winterknight.settings", Context.MODE_PRIVATE);
+            SharedPreferences settings =getApplicationContext().getSharedPreferences("org.endingloop.winterknight.settings", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = settings.edit();
-            editor.putInt("last_answered", questionId);*/
+            editor.putInt("last_answered", global);
             Toast.makeText(RiddlesActivity.this, "¡Has acertado!", Toast.LENGTH_LONG).show();
             mRiddle.setText("¡Respuesta correcta!");
             mRiddle.setTextColor(Color.parseColor("#99CC00"));
             mAnswer.setEnabled(false);
+        }
+        else{
+            Toast.makeText(RiddlesActivity.this, "¡Respuesta incorrecta!", Toast.LENGTH_LONG).show();
         }
     }
 

@@ -8,5 +8,6 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_hidden_obejct">Encuentra los objetos</string>
     <string name="title_activity_logic">Pon a prueba tu lógica</string>
-
+    <string name="dialog_title">¡Felicidades!</string>
+    <string name="dialog_message">Has completado todas las pruebas...De regalo una más.\nHogar de ciclos, trastos y polvo. Antes no tenías, ahora te olvidas. ¿Donde esta tu regalo?\n</string>
 </resources>

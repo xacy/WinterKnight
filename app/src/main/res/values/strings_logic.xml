@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="logics">
-        <item>Es cómo una paloma blanca y negra,\n pero vuela sin alas y habla sin lengua </item>
-        <item>Si soy joven, joven quedo.\nSi soy viejo, viejo quedo.\nTengo boca y no te hablo,\ntengo ojos y no te veo.\n¿Quién soy? </item>
-        <item>This thing all things devours:\nBirds, beasts, trees, flowers;\nGnaws iron, bites steel;\nGrinds hard stones to meal;\nSlays king, ruins town,\nAnd beats high mountain down.</item>
-        <item>Eight hours of death. Beneath your head -. \n a colored box that\u0027s full of dreams.\nIt listens to your tales unsaid.\nSoft gifts of birds escape its seams.</item>
+        <item>Suppose 9 men take 9 hours to dig 9 holes in the ground. How many hours would it take 3 men to dig 3 holes?</item>
+        <item>Un granjero cría vacas y gallinas. Tiene 48 animales con un total de 126 patas. ¿Cuántos de cada animal tiene? (Responde con X vacas y X gallinas).</item>
+        <item>Un día estaba esperando para subir al autobús. Estaba comiendome una manzana, como hago todas las mañanas, mientras estaba sentado en un banco con un vagabundo. Mientras estábamos sentados pasó un hombre bastante gordo por delante a lo que el vagabundo murmuro: "Cerdo..."\nNo le dí más importancia pero al rato pasó un hombre de negocios, todo trajeado y emperifollado a lo que el vagabundo murmuro: "Humano". Tampoco le dí mucha importancia ya que era obviamente humano y no era grosero como la anterior vez.\nAl día siguiente el vagabundo aún estaba allí y cuando me acercaba pasaron por delante de el una mujer muy muy delgada, un culturista y una viejecita, a lo que el vagabundo murmuro: "Sopa","Cerdo" y "Galleta" respectivamente. Me quede bastante extrañado ya que ninguno se parecía a lo que el vagabundo decía.\nMe estaba obsesionando así que a la mañana siguiente pase por delante de él para ver que decía de mí. Cuando pasé murmuro: "Manzana" y entonces me dí cuenta de lo qué pasaba. Horrorizado recordé lo que le dijo a otro transeúnte antes. ¿Qué era ese transeúnte?</item>
+        <item>Un hombre ha sido asesinado en el baño de su oficina. El detective Toby ha encontrado un papel con estas letras escritas en su bolsillo.\n "ABCDFGHIJKLMNÑOPQRSTUVWYX"\nEl detective Toby estudio el papel durante unos minutos y  procedio a detener a un compañero de la oficina \n¿Cómo se llamaba?</item>
+        <item>En el edificio se ha roto algo y como única pista han dejado este mensaje: "ACSNEOSR" ¿Qué se ha roto?</item>
+        <item>Hay 7 hermanas en una casa en un pueblo sin electricidad ní ningún gadget.\nLa hermana 1: esta leyendo un libro.\nLa hermana 2: esta cocinando.\nLa hermana 3: esta jugando al ajedrez.\nLa hermana 4: esta haciendo sudokus.\nLa hermana 5: esta lavando la ropa a mano.\nLa hermana 6: esta cuidando el jardin.\n¿A qué esta jugando la hermana 7?</item>
+        <item>Dos amigas van de cena juntas y se piden un Té helado. Una de las chicas se bebe 5 Tés en lo que la otra se ha bebido uno.\nLa chica que se ha bebido uno de repente muere mientras que la que se ha bebido 5 sobrevive.\n¿Donde estaba el veneno?</item>
+        <item>Decodifica el siguiente texto: 0100011001100101011011000110100101100011011010010110010001100001011001000110010101110011001000000110010101110011011101000110000100100000011001010111001101100011011100100110100101110100011011110010000001100101011011100010000001100010011010010110111001100001011100100110100101101111</item>
     </string-array>
     <string-array name="logics_solutions">
-        <item>carta</item>
-        <item>foto</item>
-        <item>time</item>
-        <item>pillow</item>
+        <item>9</item>
+        <item>15 vacas y 33 gallinas</item>
+        <item>Canibal</item>
+        <item>Noe</item>
+        <item>ascensor</item>
+        <item>ajedrez</item>
+        <item>hielo</item>
+        <item>Felicidades esta escrito en binario</item>
     </string-array>
 </resources>

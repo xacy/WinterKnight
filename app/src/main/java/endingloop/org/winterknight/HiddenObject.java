@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -26,14 +27,15 @@ public class HiddenObject extends Activity {
     private TextView tPistas;
     private TextView tPresentation;
 
-    private String[] imagenes;
-    private String[] soluciones;
+    private TypedArray imagenes;
+    private TypedArray soluciones;
     private String[] objetos;
     private Resources res;
 
     private int questionID;
     private int hiddenID;
     private HashMap<String,Boolean> finded;
+    private int global;
 
 
     @Override
@@ -47,8 +49,8 @@ public class HiddenObject extends Activity {
         iSolucion= (ImageView) findViewById(R.id.imageSol);
 
         res= getResources();
-        imagenes=res.getStringArray(R.array.image);
-        soluciones=res.getStringArray(R.array.image_solutions);
+        imagenes=res.obtainTypedArray(R.array.image);
+        soluciones=res.obtainTypedArray(R.array.image_solutions);
         objetos=res.getStringArray(R.array.clues);
 
         finded=new HashMap<String, Boolean>();
@@ -63,10 +65,16 @@ public class HiddenObject extends Activity {
 
         Intent intent = getIntent();
         questionID=intent.getIntExtra("position",-1);
+        global=intent.getIntExtra("id",-1);
 
         if(acceso<questionID){
             Log.d("INTENT", "" + questionID);
-            switch(questionID){
+            tPistas.setText(objetos[questionID]);
+            iImagen.setBackgroundResource(imagenes.getResourceId(questionID,-1));
+            iSolucion.setBackgroundResource(soluciones.getResourceId(questionID,-1));
+            imagenes.recycle();
+            soluciones.recycle();
+            /*switch(questionID){
                 case 0:
                     hiddenID=0;
                     tPistas.setText(objetos[hiddenID]);
@@ -86,7 +94,9 @@ public class HiddenObject extends Activity {
                 default:
                     tPistas.setText("Ha ocurrido un error");
                     break;
-            }
+
+
+            }*/
             /*
             Añadir aqui on ontouch listener a la imagen de abajo que es la que se ve
             y con eso capturar la x y la y
@@ -127,6 +137,9 @@ public class HiddenObject extends Activity {
                                 /*
                                 Falta añadir a las preferencias que este acertijo esta superado.
                                  */
+                                SharedPreferences settings =getApplicationContext().getSharedPreferences("org.endingloop.winterknight.settings", Context.MODE_PRIVATE);
+                                SharedPreferences.Editor editor = settings.edit();
+                                editor.putInt("last_answered", global);
                             }
                         }
                     }

@@ -1,23 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="clues">
-        <item>coche,corta pizzas, etc etc</item>
-        <item>coche,corta pizzas, etc etc</item>
-        <item>coche,corta pizzas, etc etc</item>
-        <item>coche,corta pizzas, etc etc</item>
+        <item>HELP,reloj, señal alta tensión, avión y fotos.</item>
+        <item>Pistola, pieza de puzle, herradura, corona y pentáculo.</item>
+        <item>Bastón de caramelo, margarita, engranaje, cerveza y papel higiénico.</item>
+        <item>Clip, cartera, petaca, oso de peluche y sujetador.</item>
+        <item>Mariquita, ketchup, vela, corazón y laca de uñas.</item>
+        <item>Pieza de puzzle, huella, manta de picnic, cereza y pelota de baseball.</item>
+        <item>Campana, regla, gato, espiral y pelota de tenis.</item>
+        <item>Pieza de puzle, luna, símbolo de infinito, margarita y pinta labios.</item>
+        <item>Pez, micrófono, carita sonriente, corazón y pinta labios.</item>
+        <item>As de corazones, pala, manta de picnic, señal de stop y taza de te.</item>
     </string-array>
     <!--En esta eran las referencias a las imagenes-->
     <string-array name="image">
-        <item>R.drawable.sample_3</item>
-        <item>R.drawable.sample_3</item>
-        <item>R.drawable.sample_3</item>
-        <item>R.drawable.sample_3</item>
+        <item>@drawable/hidden1</item>
+        <item>@drawable/hidden2</item>
+        <item>@drawable/hidden3</item>
+        <item>@drawable/hidden4</item>
+        <item>@drawable/hidden5</item>
+        <item>@drawable/hidden6</item>
+        <item>@drawable/hidden7</item>
+        <item>@drawable/hidden8</item>
+        <item>@drawable/hidden9</item>
+        <item>@drawable/hidden10</item>
     </string-array>
     <!--En esta iran las imagenes con las soluciones -->
     <string-array name="image_solutions">
-        <item>R.drawable.sample_3</item>
-        <item>R.drawable.sample_3</item>
-        <item>R.drawable.sample_3</item>
-        <item>R.drawable.sample_3</item>
+        <item>@drawable/hidden1_sol</item>
+        <item>@drawable/hidden2_sol</item>
+        <item>@drawable/hidden3_sol</item>
+        <item>@drawable/hidden4_sol</item>
+        <item>@drawable/hidden5_sol</item>
+        <item>@drawable/hidden6_sol</item>
+        <item>@drawable/hidden7_sol</item>
+        <item>@drawable/hidden8_sol</item>
+        <item>@drawable/hidden9_sol</item>
+        <item>@drawable/hidden10_sol</item>
     </string-array>
 </resources>

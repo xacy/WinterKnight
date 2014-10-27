@@ -1,6 +1,7 @@
 package endingloop.org.winterknight;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -20,6 +21,7 @@ import java.util.List;
 
 public class MainActivity extends Activity {
     private int acceso;
+    private SharedPreferences settings;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +37,7 @@ public class MainActivity extends Activity {
         final Time today = new Time(Time.getCurrentTimezone());
         today.setToNow();
 
-        SharedPreferences settings = getApplicationContext().getSharedPreferences("org.endingloop.winterknight.settings", Context.MODE_PRIVATE);
+        settings = getApplicationContext().getSharedPreferences("org.endingloop.winterknight.settings", Context.MODE_PRIVATE);
         acceso=settings.getInt("last_answered", -1);
 
         Log.d("TIME TEST", today.monthDay + "-" + today.month);
@@ -44,6 +46,7 @@ public class MainActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 //hacer aquí la comprobación de que esta activo y sí es así permitir el click.
                 if(acceso<position){
+                    //cambiar el 10 por el 11
                     int tempday=(today.month==10)?today.monthDay-6:today.monthDay+23;
                     if(tempday<(position+1)){
                         Toast.makeText(MainActivity.this,"Todavía no ha llegado el día", Toast.LENGTH_SHORT).show();
@@ -61,17 +64,20 @@ public class MainActivity extends Activity {
                         if(hidden.contains(position)){
                             intent =new Intent(MainActivity.this, HiddenObject.class);
                             //Toast.makeText(MainActivity.this, ""+hidden.indexOf(position), Toast.LENGTH_SHORT).show();
-                            intent.putExtra("position",(hidden.indexOf(position)+1));
+                            intent.putExtra("position",(hidden.indexOf(position)));
+                            intent.putExtra("id",position);
                             startActivity(intent);
                         }
                         else if(logic.contains(position)){
                             intent =new Intent(MainActivity.this, LogicActivity.class);
-                            intent.putExtra("position",(hidden.indexOf(position)+1));
+                            intent.putExtra("position",(logic.indexOf(position)));
+                            intent.putExtra("id",position);
                             startActivity(intent);
                         }
                         else if(riddles.contains(position)){
                             intent =new Intent(MainActivity.this, RiddlesActivity.class);
-                            intent.putExtra("position",(hidden.indexOf(position)+1));
+                            intent.putExtra("position",(riddles.indexOf(position)));
+                            intent.putExtra("id",position);
                             startActivity(intent);
                         }
                     }
@@ -80,6 +86,25 @@ public class MainActivity extends Activity {
 
             }
         });
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        int acceso=settings.getInt("last_answered", -1);
+        //Toast.makeText(MainActivity.this, "Prueba de resume", Toast.LENGTH_SHORT).show();
+        if(acceso==28){
+            //meter aquí la ventana dando la enhorabuena
+            // 1. Instantiate an AlertDialog.Builder with its constructor
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+
+            // 2. Chain together various setter methods to set the dialog characteristics
+                        builder.setMessage(R.string.dialog_message)
+                                .setTitle(R.string.dialog_title);
+
+            // 3. Get the AlertDialog from create()
+                        AlertDialog dialog = builder.create();
+            dialog.show();
+        }
     }
 
 

@@ -27,6 +27,7 @@ public class LogicActivity extends Activity {
     private String[] solutions;
     private int logicID;
     private int questionID;
+    private int global;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +46,13 @@ public class LogicActivity extends Activity {
 
         Intent intent = getIntent();
         questionID=intent.getIntExtra("position",-1);
+        global=intent.getIntExtra("id",-1);
 
+        Log.d("Acceso",""+acceso+" - "+questionID);
         if(acceso<questionID){
             Log.d("INTENT", "" + questionID);
-            switch(questionID){
+            mLogic.setText(logic[questionID]);
+           /* switch(questionID){
                 case 0:
                     logicID=0;
                     mLogic.setText(logic[0]);
@@ -68,7 +72,7 @@ public class LogicActivity extends Activity {
                 default:
                     mLogic.setText("Ha ocurrido un error");
                     break;
-            }
+            }*/
             bAnswer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -92,10 +96,16 @@ public class LogicActivity extends Activity {
             /*SharedPreferences settings =getApplicationContext().getSharedPreferences("org.endingloop.winterknight.settings", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = settings.edit();
             editor.putInt("last_answered", questionId);*/
+            SharedPreferences settings =getApplicationContext().getSharedPreferences("org.endingloop.winterknight.settings", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putInt("last_answered", global);
             Toast.makeText(LogicActivity.this, "¡Has acertado!", Toast.LENGTH_LONG).show();
             mLogic.setText("¡Respuesta correcta!");
             mLogic.setTextColor(Color.parseColor("#99CC00"));
             mAnswer.setEnabled(false);
+        }
+        else{
+            Toast.makeText(LogicActivity.this, "¡Respuesta incorrecta!", Toast.LENGTH_LONG).show();
         }
     }
 

@@ -5,11 +5,21 @@
         <item>Si soy joven, joven quedo.\nSi soy viejo, viejo quedo.\nTengo boca y no te hablo,\ntengo ojos y no te veo.\n¿Quién soy? </item>
         <item>This thing all things devours:\nBirds, beasts, trees, flowers;\nGnaws iron, bites steel;\nGrinds hard stones to meal;\nSlays king, ruins town,\nAnd beats high mountain down.</item>
         <item>Eight hours of death. Beneath your head -. \n a colored box that\u0027s full of dreams.\nIt listens to your tales unsaid.\nSoft gifts of birds escape its seams.</item>
+        <item>¿Qué cosa posee el hombre\nque nadie la puede ver?\nSin alas vuela hasta el cielo\ny es la causa del saber.</item>
+        <item>Vence al tigre y al león.\nvence al toro embravecido,\nvence a señores y reyes,\ny a todos deja vencidos.</item>
+        <item>Soy el que jamás descansa\ny va y viene sin cesar.\nNunca me puedo secar.\nJamás te aburre mi danza.\nEn presencia o añoranza\ntú siempre me vas a amar.</item>
+        <item>Aunque soy superficial,\npertenezco a lo profundo,\nSoy la prueba terrenal\nde que estuviste en el mundo.</item>
+        <item>Mi madre es tartamuda ,\nmi padre es cantaor;\ntengo el vestido blanco\ny amarillo el corazón.</item>
     </string-array>
     <string-array name="riddles_solutions">
         <item>carta</item>
         <item>foto</item>
         <item>time</item>
         <item>pillow</item>
+        <item>pensamiento</item>
+        <item>sueño</item>
+        <item>mar</item>
+        <item>huella</item>
+        <item>huevo</item>
     </string-array>
 </resources>
