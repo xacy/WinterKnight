@@ -61,13 +61,14 @@ public class HiddenObject extends Activity {
         finded.put("000000",false);//black
 
         SharedPreferences settings = getApplicationContext().getSharedPreferences("org.endingloop.winterknight.settings", Context.MODE_PRIVATE);
-        int acceso=settings.getInt("last_answered", -1);
+        int acceso=settings.getInt("last_answered", 0);
 
         Intent intent = getIntent();
         questionID=intent.getIntExtra("position",-1);
         global=intent.getIntExtra("id",-1);
-
-        if(acceso<questionID){
+        Log.d("GLOBAL",""+global);
+        Log.d("GLOBAL",""+global+" acceso "+acceso);
+        if(acceso==(global-1)){
             Log.d("INTENT", "" + questionID);
             tPistas.setText(objetos[questionID]);
             iImagen.setBackgroundResource(imagenes.getResourceId(questionID,-1));
@@ -140,12 +141,21 @@ public class HiddenObject extends Activity {
                                 SharedPreferences settings =getApplicationContext().getSharedPreferences("org.endingloop.winterknight.settings", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = settings.edit();
                                 editor.putInt("last_answered", global);
+                                editor.commit();
                             }
                         }
                     }
                     return false;
                 }
             });
+        }
+        else if(acceso<global){
+            tPresentation.setText("¡Tienes que resolver los anteriores!");
+            tPistas.setText("¡Estrujate el cerebro!");
+            tPistas.setTextColor(Color.parseColor("#F44336"));
+            tPresentation.setTextColor(Color.parseColor("#F44336"));
+            iImagen.setEnabled(false);
+            iSolucion.setEnabled(false);
         }
         else{
             tPresentation.setText("¡Ya has superado este acertijo!");

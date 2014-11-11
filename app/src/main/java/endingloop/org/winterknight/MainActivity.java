@@ -45,9 +45,13 @@ public class MainActivity extends Activity {
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 //hacer aquí la comprobación de que esta activo y sí es así permitir el click.
-                if(acceso<position){
+                Log.d("PRUEBA TEST","acceso: "+acceso+"- "+ today.monthDay + "-" + today.month);
+                if(acceso<=(position+1)){
                     //cambiar el 10 por el 11
                     int tempday=(today.month==10)?today.monthDay-6:today.monthDay+23;
+                    Log.d("FECHA","MONTH:"+today.month+" - dia"+today.monthDay);
+                    Log.d("TEMP",""+tempday);
+                    Log.d("POSITION",""+position);
                     if(tempday<(position+1)){
                         Toast.makeText(MainActivity.this,"Todavía no ha llegado el día", Toast.LENGTH_SHORT).show();
                     }
@@ -66,21 +70,27 @@ public class MainActivity extends Activity {
                             //Toast.makeText(MainActivity.this, ""+hidden.indexOf(position), Toast.LENGTH_SHORT).show();
                             intent.putExtra("position",(hidden.indexOf(position)));
                             intent.putExtra("id",position);
+                            Log.d("GLOBAL",""+position);
                             startActivity(intent);
                         }
                         else if(logic.contains(position)){
                             intent =new Intent(MainActivity.this, LogicActivity.class);
                             intent.putExtra("position",(logic.indexOf(position)));
                             intent.putExtra("id",position);
+                            Log.d("GLOBAL",""+position);
                             startActivity(intent);
                         }
                         else if(riddles.contains(position)){
                             intent =new Intent(MainActivity.this, RiddlesActivity.class);
                             intent.putExtra("position",(riddles.indexOf(position)));
                             intent.putExtra("id",position);
+                            Log.d("GLOBAL",""+position);
                             startActivity(intent);
                         }
                     }
+                }
+                else{
+                    Toast.makeText(MainActivity.this,"No se porque estas aqui", Toast.LENGTH_SHORT).show();
                 }
 
 

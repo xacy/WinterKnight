@@ -42,14 +42,14 @@ public class LogicActivity extends Activity {
         solutions=res.getStringArray(R.array.logics_solutions);
 
         SharedPreferences settings = getApplicationContext().getSharedPreferences("org.endingloop.winterknight.settings", Context.MODE_PRIVATE);
-        int acceso=settings.getInt("last_answered", -1);
+        int acceso=settings.getInt("last_answered", 0);
 
         Intent intent = getIntent();
         questionID=intent.getIntExtra("position",-1);
         global=intent.getIntExtra("id",-1);
 
-        Log.d("Acceso",""+acceso+" - "+questionID);
-        if(acceso<questionID){
+        Log.d("Acceso",""+acceso+" - "+global);
+        if(acceso==(global-1)){
             Log.d("INTENT", "" + questionID);
             mLogic.setText(logic[questionID]);
            /* switch(questionID){
@@ -80,6 +80,11 @@ public class LogicActivity extends Activity {
                 }
             });
         }
+        else if(acceso<global){
+            mLogic.setText("¡No has superado los anteriores!");
+            mLogic.setTextColor(Color.parseColor("#F44336"));
+            mAnswer.setEnabled(false);
+        }
         else{
             mLogic.setText("¡Ya has superado este acertijo!");
             mLogic.setTextColor(Color.parseColor("#99CC00"));
@@ -89,8 +94,8 @@ public class LogicActivity extends Activity {
     }
 
     public void attemptAnswer() {
-        Log.d("SOLUCION",mAnswer.getText()+" - "+solutions[logicID].toLowerCase()+" - "+logicID);
-        if(mAnswer.getText().toString().equals(solutions[logicID].toLowerCase())){
+        Log.d("SOLUCION",mAnswer.getText()+" - "+solutions[questionID].toLowerCase()+" - "+logicID);
+        if(mAnswer.getText().toString().toLowerCase().equals(solutions[questionID].toLowerCase())){
             Log.d("SOLUCION","son iguales");
             //Guardamos la ultima pregunta resuelta y mostramos mensaje de acierto.
             /*SharedPreferences settings =getApplicationContext().getSharedPreferences("org.endingloop.winterknight.settings", Context.MODE_PRIVATE);
@@ -103,6 +108,7 @@ public class LogicActivity extends Activity {
             mLogic.setText("¡Respuesta correcta!");
             mLogic.setTextColor(Color.parseColor("#99CC00"));
             mAnswer.setEnabled(false);
+            editor.commit();
         }
         else{
             Toast.makeText(LogicActivity.this, "¡Respuesta incorrecta!", Toast.LENGTH_LONG).show();

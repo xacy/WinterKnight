@@ -41,13 +41,13 @@ public class RiddlesActivity extends Activity {
         solutions=res.getStringArray(R.array.riddles_solutions);
 
         SharedPreferences settings = getApplicationContext().getSharedPreferences("org.endingloop.winterknight.settings", Context.MODE_PRIVATE);
-        int acceso=settings.getInt("last_answered", -1);
+        int acceso=settings.getInt("last_answered", 0);
 
         Intent intent = getIntent();
         questionId=intent.getIntExtra("position",-1);
         global=intent.getIntExtra("id",-1);
-
-        if(acceso<questionId){
+        Log.d("GLOBAL",""+global+" acceso "+acceso);
+        if(acceso==(global-1)){
             Log.d("INTENT",""+questionId);
             mRiddle.setText(riddles[questionId]);/*
             switch(questionId){
@@ -78,6 +78,11 @@ public class RiddlesActivity extends Activity {
                 }
             });
         }
+        else if(acceso<global){
+            mRiddle.setText("¡No has resuelto los anteriores!");
+            mRiddle.setTextColor(Color.parseColor("#F44336"));
+            mAnswer.setEnabled(false);
+        }
         else{
             mRiddle.setText("¡Ya has superado este acertijo!");
             mRiddle.setTextColor(Color.parseColor("#99CC00"));
@@ -87,8 +92,8 @@ public class RiddlesActivity extends Activity {
     }
 
     public void attemptAnswer() {
-        Log.d("SOLUCION",mAnswer.getText()+" - "+solutions[riddleId].toLowerCase()+" - "+riddleId);
-        if(mAnswer.getText().toString().equals(solutions[riddleId].toLowerCase())){
+        Log.d("SOLUCION",mAnswer.getText()+" - "+solutions[questionId].toLowerCase()+" - "+questionId);
+        if(mAnswer.getText().toString().toLowerCase().equals(solutions[questionId].toLowerCase())){
             Log.d("SOLUCION","son iguales");
             //Guardamos la ultima pregunta resuelta y mostramos mensaje de acierto.
             SharedPreferences settings =getApplicationContext().getSharedPreferences("org.endingloop.winterknight.settings", Context.MODE_PRIVATE);
@@ -98,6 +103,7 @@ public class RiddlesActivity extends Activity {
             mRiddle.setText("¡Respuesta correcta!");
             mRiddle.setTextColor(Color.parseColor("#99CC00"));
             mAnswer.setEnabled(false);
+            editor.commit();
         }
         else{
             Toast.makeText(RiddlesActivity.this, "¡Respuesta incorrecta!", Toast.LENGTH_LONG).show();
